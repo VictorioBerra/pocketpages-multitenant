@@ -7,7 +7,7 @@
 
   if (request.method === 'POST') {
     // nav to the selected tenant
-    var tenantById = tenants.find(tenant => tenant.get('Identifier') === body().tenant);
+    var tenantById = tenants.find(tenant => tenant.getString('Identifier') === body().tenant);
 
     warn(tenantById)
 

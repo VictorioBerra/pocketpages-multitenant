@@ -1,4 +1,4 @@
-# MPA Auth Demo
+# Multitenant Auth Demo
 
 This starter kit shows how to do Multi Tenant App with Pocketpages
 
@@ -7,6 +7,7 @@ This is based on the auth templates.
 - Tenants tables
 - Users link to a tenant now
 - Tenant is required in the basepath of the URL. IE: `example.com/tenanta`
+- Middleware resolves the tenant based on the URL and fetches the tenant from the database
 
 ## Email
 

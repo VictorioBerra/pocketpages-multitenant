@@ -41,7 +41,7 @@
         <% if (auth) { %>
         <li><a href="/<%= params.tenant %>/account">Account</a></li>
         <li><a href="/<%= params.tenant %>/auth/logout">Logout</a></li>
-        <% } else { %>
+        <% } else if (params.tenant) { %>
         <li><a href="/<%= params.tenant %>/auth/login">Login</a></li>
         <li><a href="/<%= params.tenant %>/auth/register">Register</a></li>
         <% } %>
