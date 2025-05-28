@@ -1,4 +1,4 @@
-/** @type {import('pocketpages').PageDataLoaderFunc} */
+/** @type {import('pocketpages').MiddlewareLoaderFunc} */
 module.exports = function (api) {
 
   let tenant = $app.findFirstRecordByData("Tenants", "Identifier", api.params.tenant)
