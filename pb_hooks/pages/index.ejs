@@ -1,0 +1,33 @@
+<script server>
+  let error = null
+
+  let tenants = $app.findAllRecords('Tenants');
+
+  warn(tenants)
+
+  if (request.method === 'POST') {
+    // nav to the selected tenant
+    var tenantById = tenants.find(tenant => tenant.get('Identifier') === body().tenant);
+
+    warn(tenantById)
+
+    redirect(`/${tenantById.getString('Identifier')}`);
+  }
+</script>
+<h2>Select Tenant</h2>
+<% if (error) { %>
+<div><mark><%= error %></mark></div>
+<% } %>
+<form method="post">
+  <label>Tenants</label>
+      <select name="tenant" required>
+        <option value="">Select Tenant</option>
+        <% for (const tenant of tenants) { %>
+          <option value="<%= tenant.get('Identifier') %>" <%= formData.tenant === tenant.get('Identifier') ? 'selected' : '' %>>
+            <%= tenant.getString('Name') %>
+          </option>
+        <% } %>
+    </select>
+
+  <button type="submit">Go</button>
+</form>
