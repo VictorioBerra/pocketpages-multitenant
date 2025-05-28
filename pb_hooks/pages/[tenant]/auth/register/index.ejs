@@ -8,9 +8,10 @@
     } = body()
     try {
       pb().collection('users').create({
-        identity,
-        tenant,
-        password
+        email: identity,
+        Tenant: data.tenant.Id,
+        password,
+        passwordConfirm: password
       })
       redirect(`/`)
     } catch (e) {
@@ -18,7 +19,7 @@
     }
   }
 </script>
-<h2>Register for user in tenant <%= data.tenant.Name %></h2>
+<h2>Register for user in tenant <%= data.tenant.Name %> (<%= data.tenant.Id %>)</h2>
 <% if (error) { %>
 <div><mark><%= error %></mark></div>
 <% } %>
